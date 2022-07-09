@@ -8,6 +8,7 @@ class ViewController: UIViewController {
     lazy var text: UILabel = {
         $0.text = "localized.sample".localized
         $0.font = UIFont(name: Constants.FontName.bold, size: 30)
+        $0.textAlignment = .center
         $0.textColor = Constants.Colors.lightRed
         return $0
     }(UILabel())

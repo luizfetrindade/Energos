@@ -5,6 +5,12 @@ class ViewController: UIViewController {
 
     lazy var box = UIView()
     
+    lazy var text: UILabel = {
+        $0.text = "Teste"
+        $0.font = UIFont(name: "PlayfairDisplay-Medium", size: 16)
+        return $0
+    }(UILabel())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -13,17 +19,17 @@ class ViewController: UIViewController {
 
 extension ViewController: ViewCode {
     func buildViewHierarchy() {
-        self.view.addSubview(box)
+        self.view.addSubview(text)
     }
     
     func setupConstraints() {
-        box.snp.makeConstraints { (make) -> Void in
+        text.snp.makeConstraints { (make) -> Void in
            make.width.height.equalTo(50)
            make.center.equalTo(self.view)
         }
     }
     
     func setupAditionalConfiguration() {
-        box.backgroundColor = .green
+//        box.backgroundColor = .green
     }
 }

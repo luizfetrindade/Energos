@@ -21,9 +21,9 @@ class RoutineScreen: UIView {
 
 }
 
-// MARK: Methods of Code View Protocol
+// MARK: Methods of View Code Protocol
 
-extension RoutineScreen: CodeView {
+extension RoutineScreen: ViewCode {
 
   func buildViewHierarchy() {
   }

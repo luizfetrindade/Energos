@@ -9,23 +9,15 @@ class RoutineScreen: UIView {
     
 // MARK: Views
     
-    lazy var text2: UILabel = {
-        $0.text = "localized.sample".localized
-        $0.font = UIFont(name: Constants.FontName.bold, size: 30)
-        $0.textAlignment = .center
-        $0.textColor = Constants.Colors.lightRed
-        return $0
-    }(UILabel())
+    lazy var header = DateHeader()
     
-    lazy var text: UILabel = {
-        let day = Date().toString(format: Constants.DateFormat.dayAsNumber)
-        let dayName = Date().toString(format: Constants.DateFormat.dayOfTheWeekAbreviated)
-        $0.text = "\(day).\(dayName)"
-        $0.font = UIFont(name: Constants.FontName.black, size: 40)
-        $0.textAlignment = .center
-        $0.textColor = Constants.Colors.lightGray
-        return $0
-    }(UILabel())
+    lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        tableView.allowsMultipleSelection = false
+        tableView.tableFooterView = UIView(frame: .zero)
+        return tableView
+    }()
     
 // MARK: Inicialization
     
@@ -44,13 +36,19 @@ class RoutineScreen: UIView {
 extension RoutineScreen: ViewCode {
     
     func buildViewHierarchy() {
-        addSubview(text)
+        addSubview(header)
+        addSubview(tableView)
     }
     
     func setupConstraints() {
-        text.snp.makeConstraints { (make) -> Void in
-            make.width.height.equalTo(200)
-            make.center.equalToSuperview()
+        header.snp.makeConstraints { (make) -> Void in
+            make.trailing.leading.equalToSuperview().inset(Constants.View.padding08)
+            make.top.equalToSuperview().inset(Constants.View.padding40)
+        }
+        
+        tableView.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.top.equalTo(header.snp.bottom).offset(Constants.View.padding40)
         }
     }
     

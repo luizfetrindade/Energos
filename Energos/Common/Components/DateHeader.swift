@@ -50,6 +50,7 @@ public class DateHeader: UIView {
     }
 }
 
+// MARK: - Date Header
 extension DateHeader: ViewCode {
     public func buildViewHierarchy() {
         addSubview(stackViewVertical)

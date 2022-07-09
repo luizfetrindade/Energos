@@ -46,7 +46,9 @@ public enum Constants {
         public static let padding24: CGFloat = 24
         public static let padding32: CGFloat = 32
         public static let padding40: CGFloat = 40
+        public static let padding56: CGFloat = 56
         public static let padding64: CGFloat = 64
+        public static let padding72: CGFloat = 72
         public static let padding86: CGFloat = 86
         public static let bottomAnchor: CGFloat = -180
     }

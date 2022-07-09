@@ -25,6 +25,16 @@ public enum Constants {
         static let lightGray = UIColor(named: "lightGray")
     }
     
+    public enum DateFormat {
+        static let timeIn24Hours = "HH:mm"
+        static let dateAsCalendar = "dd/MM/yyyy"
+        static let dateFull = "dd/MM/yyyy HH:mm"
+        static let dayAsNumber = "dd"
+        static let dayOfTheWeekAbreviated = "EEE"
+        static let dayOfTheWeekFull = "EEEE"
+        static let monthNameFull = "LLLL"
+    }
+    
     public enum View {
         public static let padding00: CGFloat = 00
         public static let padding04: CGFloat = 04

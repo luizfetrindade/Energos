@@ -2,12 +2,12 @@ import UIKit
 
 class RoutineViewController: UIViewController {
 
-  // MARK: Private Properties
+// MARK: Private Properties
 
   private let presenter: RoutinePresenterProtocol
   private let screen = RoutineScreen()
 
-  // MARK: Inicialization
+// MARK: Inicialization
 
   init(presenter: RoutinePresenterProtocol) {
     self.presenter = presenter
@@ -18,7 +18,7 @@ class RoutineViewController: UIViewController {
     fatalError("init(coder:) has not been implemented")
   }
 
-  // MARK: Lifecycle Methods
+// MARK: Lifecycle Methods
 
   override func loadView() {
     view = screen

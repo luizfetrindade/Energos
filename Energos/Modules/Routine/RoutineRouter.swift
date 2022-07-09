@@ -2,11 +2,11 @@ import UIKit
 
 class RoutineRouter {
 
-  // MARK: Private Properties
+// MARK: Private Properties
 
   private weak var viewController: UIViewController?
 
-  // MARK: Static methods
+// MARK: Static methods
 
   static func configuredViewController() -> UIViewController {
 
@@ -29,7 +29,6 @@ class RoutineRouter {
     return viewController
 
   }
-
 }
 
 // MARK: Methods of RoutineRouterProtocol

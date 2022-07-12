@@ -1,24 +1,23 @@
 import UIKit
 import SnapKit
 
-public class DateHeader: UIView {
+public class HeaderWithUpperDescription: UIView {
     
     // MARK: - Layout components
     
-    lazy var monthYearLabel: UILabel = {
-        let shortMonth = Date().toString(format: Constants.DateFormat.monthNameShort)
-        let year = Date().toString(format: Constants.DateFormat.yearAsNumber)
-        $0.text = "\(shortMonth) \(year)"
+    var title: String?
+    var details: String?
+    
+    lazy var detailsLabel: UILabel = {
+        $0.text = details
         $0.font = UIFont(name: Constants.FontName.black, size: 18)
         $0.textAlignment = .left
         $0.textColor = Constants.Colors.lightGray
         return $0
     }(UILabel())
     
-    lazy var dayLabel: UILabel = {
-        let day = Date().toString(format: Constants.DateFormat.dayAsNumber)
-        let dayName = Date().toString(format: Constants.DateFormat.dayOfTheWeekAbreviated)
-        $0.text = "\(day).\(dayName)"
+    lazy var titleLabel: UILabel = {
+        $0.text = title
         $0.font = UIFont(name: Constants.FontName.black, size: 40)
         $0.textAlignment = .left
         $0.textColor = Constants.Colors.lightGray
@@ -40,8 +39,10 @@ public class DateHeader: UIView {
     
     // MARK: - Life Cycle
     
-    public init() {
+    public init(title: String, details: String) {
         super.init(frame: .zero)
+        self.title = title
+        self.details = details
         setupView()
     }
     
@@ -51,12 +52,11 @@ public class DateHeader: UIView {
 }
 
 // MARK: - Date Header
-extension DateHeader: ViewCode {
+extension HeaderWithUpperDescription: ViewCode {
     public func buildViewHierarchy() {
         addSubview(stackViewVertical)
-        stackViewVertical.addArrangedSubview(monthYearLabel)
-        stackViewVertical.addArrangedSubview(dayLabel)
-//        stackViewVertical.addArrangedSubview(lineView)
+        stackViewVertical.addArrangedSubview(detailsLabel)
+        stackViewVertical.addArrangedSubview(titleLabel)
         addSubview(lineView)
     }
     
@@ -73,7 +73,7 @@ extension DateHeader: ViewCode {
     }
     
     public func setupAditionalConfiguration() {
-        stackViewVertical.setCustomSpacing(Constants.View.padding04, after: monthYearLabel)
-        stackViewVertical.setCustomSpacing(Constants.View.padding04, after: dayLabel)
+        stackViewVertical.setCustomSpacing(Constants.View.padding04, after: detailsLabel)
+        stackViewVertical.setCustomSpacing(Constants.View.padding04, after: titleLabel)
     }
 }

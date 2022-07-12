@@ -27,6 +27,7 @@ class RoutineViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    presenter.loadCalendarData()
   }
 
 }
@@ -39,4 +40,10 @@ extension RoutineViewController: RoutineScreenDelegate {
 // MARK: Methods of RoutineViewProtocol
 
 extension RoutineViewController: RoutineViewProtocol {
+        
+    func setCalendarData() {
+        screen.header.details = presenter.viewModel.monthAndYear
+        screen.header.title = presenter.viewModel.dayDescription
+        screen.header.setupTextLabel()
+    }
 }

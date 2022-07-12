@@ -18,17 +18,23 @@ class RoutinePresenter {
     self.interactor = interactor
     self.router = router
   }
-
-// MARK: Private Methods
-
 }
 
 // MARK: Methods of RoutinePresenterProtocol
 
 extension RoutinePresenter: RoutinePresenterProtocol {
+    
+    func loadCalendarData() {
+        interactor.getCalendarData()
+    }
 }
 
 // MARK: Methods of RoutineInteractorOutputProtocol
 
 extension RoutinePresenter: RoutineInteractorOutputProtocol {
+    func didGetCalendarData(title: String, description: String) {
+        viewModel.dayDescription = title
+        viewModel.monthAndYear = description
+        view?.setCalendarData()
+    }
 }

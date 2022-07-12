@@ -3,24 +3,27 @@ import SnapKit
 
 public class HeaderWithUpperDescription: UIView {
     
-    // MARK: - Layout components
+//    MARK: - Typealias
     
-    var title: String?
-    var details: String?
+    typealias Font = Constants.FontName
+    typealias Color = Constants.Colors
+    typealias View = Constants.View
+    
+    // MARK: - Layout components
     
     lazy var detailsLabel: UILabel = {
         $0.text = details
-        $0.font = UIFont(name: Constants.FontName.black, size: 18)
+        $0.font = UIFont(name: Font.regular, size: 18)
         $0.textAlignment = .left
-        $0.textColor = Constants.Colors.lightGray
+        $0.textColor = Color.lightGray
         return $0
     }(UILabel())
     
     lazy var titleLabel: UILabel = {
         $0.text = title
-        $0.font = UIFont(name: Constants.FontName.black, size: 40)
+        $0.font = UIFont(name: Font.medium, size: 45)
         $0.textAlignment = .left
-        $0.textColor = Constants.Colors.lightGray
+        $0.textColor = Color.lightGray
         return $0
     }(UILabel())
     
@@ -33,21 +36,30 @@ public class HeaderWithUpperDescription: UIView {
     }()
     
     lazy var lineView: UIView = {
-        $0.backgroundColor = Constants.Colors.lightGray
+        $0.backgroundColor = Color.lightGray
         return $0
     }(UIView())
+    
+//    MARK: - Variables
+    
+    var title: String?
+    var details: String?
     
     // MARK: - Life Cycle
     
     public init(title: String, details: String) {
         super.init(frame: .zero)
-        self.title = title
-        self.details = details
         setupView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    func setupTextLabel() {
+        titleLabel.text = title
+        detailsLabel.text = details
     }
 }
 
@@ -62,18 +74,18 @@ extension HeaderWithUpperDescription: ViewCode {
     
     public func setupConstraints() {
         stackViewVertical.snp.makeConstraints { make in
-            make.trailing.bottom.leading.top.equalToSuperview().inset(Constants.View.padding16)
+            make.trailing.bottom.leading.top.equalToSuperview().inset(View.padding16)
         }
         
         lineView.snp.makeConstraints { make in
             make.height.equalTo(1)
-            make.leading.trailing.equalToSuperview().inset(Constants.View.padding08)
-            make.top.equalTo(stackViewVertical.snp.bottom).offset(Constants.View.padding16)
+            make.leading.trailing.equalToSuperview().inset(View.padding08)
+            make.top.equalTo(stackViewVertical.snp.bottom).offset(View.padding16)
         }
     }
     
     public func setupAditionalConfiguration() {
-        stackViewVertical.setCustomSpacing(Constants.View.padding04, after: detailsLabel)
-        stackViewVertical.setCustomSpacing(Constants.View.padding04, after: titleLabel)
+        stackViewVertical.setCustomSpacing(View.padding04, after: detailsLabel)
+        stackViewVertical.setCustomSpacing(View.padding04, after: titleLabel)
     }
 }

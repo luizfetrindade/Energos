@@ -11,7 +11,7 @@ final class TitleWithImage: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
-        setImage(UIImage(imageLiteralResourceName: "book"), size: CGSize(width: 18, height: 18))
+        setImage(UIImage(imageLiteralResourceName: "bed"), size: CGSize(width: 25, height: 25))
     }
     
     required init?(coder: NSCoder) {

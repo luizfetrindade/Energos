@@ -60,8 +60,8 @@ public class HeaderWithUpperDescription: UIView {
     
     
     func setupTextLabel() {
-        titleLabel.text = title
-        detailsLabel.text = details
+//        titleLabel.text = title
+//        detailsLabel.text = details
     }
 }
 
@@ -76,17 +76,19 @@ extension HeaderWithUpperDescription: ViewCode {
     
     public func setupConstraints() {
         stackViewVertical.snp.makeConstraints { make in
-            make.trailing.bottom.leading.top.equalToSuperview().inset(View.padding16)
+            make.trailing.bottom.leading.equalToSuperview().inset(View.padding08)
+            make.top.equalToSuperview().offset(View.padding64)
         }
         
         lineView.snp.makeConstraints { make in
             make.height.equalTo(1)
-            make.leading.trailing.equalToSuperview().inset(View.padding08)
-            make.top.equalTo(stackViewVertical.snp.bottom).offset(View.padding16)
+            make.leading.equalToSuperview().inset(View.padding08)
+            make.trailing.equalToSuperview().offset(View.padding64)
+            make.top.equalTo(stackViewVertical.snp.bottom).offset(View.padding04)
         }
     }
     
     public func setupAditionalConfiguration() {
-        stackViewVertical.setCustomSpacing(-View.padding16, after: detailsLabel)
+        stackViewVertical.setCustomSpacing(-8, after: detailsLabel)
     }
 }

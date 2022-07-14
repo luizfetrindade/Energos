@@ -15,7 +15,7 @@ class RoutineScreen: UIView {
     
 // MARK: Views
     
-    lazy var header = HeaderWithUpperDescription()
+    lazy var header = HeaderWithUpperDescription(title: "routine.title".localized, details: "routine.description".localized)
     
     lazy var tableView: UITableView = {
         $0.register(RoutineDataCell.self, forCellReuseIdentifier: RoutineDataCell.identifier)

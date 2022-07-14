@@ -58,9 +58,6 @@ final class RoutineDataCell: UITableViewCell {
 //MARK: - View Code Extension
 extension RoutineDataCell: ViewCode {
     func buildViewHierarchy() {
-        
-        roundView.addSubview(mockLabel)
-        
         addSubview(verticalStack)
         verticalStack.addArrangedSubview(titleWithImage)
         verticalStack.addArrangedSubview(daysOfTheWeekIconStack)
@@ -68,10 +65,6 @@ extension RoutineDataCell: ViewCode {
     }
     
     func setupConstraints() {
-        
-        roundView.snp.makeConstraints { make in
-            make.height.width.equalTo(15)
-        }
         verticalStack.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(View.padding16)
             make.top.bottom.equalToSuperview().inset(View.padding16)

@@ -5,9 +5,9 @@ class RoutineScreen: UIView {
     
 //    MARK: - Typealias
     
-    typealias Font = Constants.FontName
-    typealias Color = Constants.Colors
-    typealias View = Constants.View
+    typealias Font = CoreConstants.FontName
+    typealias Color = CoreConstants.Colors
+    typealias View = CoreConstants.View
     
 // MARK: Private Properties
     
@@ -15,9 +15,10 @@ class RoutineScreen: UIView {
     
 // MARK: Views
     
-    lazy var header = HeaderWithUpperDescription(title: "", details: "")
+    lazy var header = HeaderWithUpperDescription()
     
     lazy var tableView: UITableView = {
+        $0.register(RoutineDataCell.self, forCellReuseIdentifier: RoutineDataCell.identifier)
         $0.backgroundColor = .clear
         $0.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         $0.allowsMultipleSelection = false
@@ -63,13 +64,13 @@ extension RoutineScreen: ViewCode {
         
         tableView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
-            make.top.equalTo(header.snp.bottom).offset(View.padding40)
+            make.top.equalTo(header.snp.bottom).offset(View.padding24)
         }
         
         roundButton.snp.makeConstraints { make in
             make.height.width.equalTo(60)
-            make.trailing.equalToSuperview().inset(View.padding40)
-            make.bottom.equalToSuperview().inset(View.padding64)
+            make.trailing.equalToSuperview().inset(View.padding32)
+            make.bottom.equalToSuperview().inset(View.padding40)
         }
     }
     

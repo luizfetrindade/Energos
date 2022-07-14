@@ -5,9 +5,9 @@ public class HeaderWithUpperDescription: UIView {
     
 //    MARK: - Typealias
     
-    typealias Font = Constants.FontName
-    typealias Color = Constants.Colors
-    typealias View = Constants.View
+    typealias Font = CoreConstants.FontName
+    typealias Color = CoreConstants.Colors
+    typealias View = CoreConstants.View
     
     // MARK: - Layout components
     
@@ -47,8 +47,10 @@ public class HeaderWithUpperDescription: UIView {
     
     // MARK: - Life Cycle
     
-    public init(title: String, details: String) {
+    public init(title: String? = nil, details: String? = nil) {
         super.init(frame: .zero)
+        self.title = title
+        self.details = details
         setupView()
     }
     
@@ -85,7 +87,6 @@ extension HeaderWithUpperDescription: ViewCode {
     }
     
     public func setupAditionalConfiguration() {
-        stackViewVertical.setCustomSpacing(View.padding04, after: detailsLabel)
-        stackViewVertical.setCustomSpacing(View.padding04, after: titleLabel)
+        stackViewVertical.setCustomSpacing(-View.padding16, after: detailsLabel)
     }
 }

@@ -1,6 +1,6 @@
 import UIKit
 
-public enum Constants {
+public enum CoreConstants {
     
     enum FontName {
         static let black = "PlayfairDisplay-Black"
@@ -23,18 +23,6 @@ public enum Constants {
         static let darkGray = UIColor(named: "darkGray")
         static let mediumGray = UIColor(named: "mediumGray")
         static let lightGray = UIColor(named: "lightGray")
-    }
-    
-    public enum DateFormat {
-        static let timeIn24Hours = "HH:mm"
-        static let dateAsCalendar = "dd/MM/yyyy"
-        static let dateFull = "dd/MM/yyyy HH:mm"
-        static let dayAsNumber = "dd"
-        static let yearAsNumber = "YYYY"
-        static let dayOfTheWeekAbreviated = "EEE"
-        static let dayOfTheWeekFull = "EEEE"
-        static let monthNameFull = "LLLL"
-        static let monthNameShort = "LLL"
     }
     
     public enum View {

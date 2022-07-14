@@ -4,7 +4,7 @@ class RoutineInteractor {
     
     // MARK:  Typealias
     
-    typealias DateFormatter = Constants.DateFormat
+    typealias DateFormatter = CalendarConstants.DateFormat
     
     // MARK: Private Properties
     
